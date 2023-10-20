@@ -11,6 +11,8 @@ system.mem_mode = 'timing'
 system.mem_ranges = [AddrRange('512MB')]
 
 system.cpu = X86TimingSimpleCPU()
+# system.cpu = X86MinorCPU()
+# system.cpu = ArmMinorCPU()
 
 system.membus = SystemXBar()
 
