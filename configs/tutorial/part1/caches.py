@@ -24,9 +24,10 @@ class L1ICache(L1Cache):
 
     def __init__(self, options=None):
         super(L1ICache, self).__init__(options)
-        if not options or not options.l1i_size:
+        if not options or not options.l1i_size or not options.l1i_assoc:
             return
         self.size = options.l1i_size
+        self.assoc = options.l1i_assoc
 
 class L1DCache(L1Cache):
     size = '64kB'
@@ -39,9 +40,10 @@ class L1DCache(L1Cache):
 
     def __init__(self, options=None):
         super(L1DCache, self).__init__(options)
-        if not options or not options.l1d_size:
+        if not options or not options.l1d_size or not options.l1d_assoc:
             return
         self.size = options.l1d_size
+        self.size = options.l1d_assoc
 
 class L2Cache(Cache):
     size = '256kB'
@@ -60,9 +62,10 @@ class L2Cache(Cache):
     
     def __init__(self, options=None):
         super(L2Cache, self).__init__()
-        if not options or not options.l2_size:
+        if not options or not options.l2_size or not options.l2_assoc:
             return
         self.size = options.l2_size
+        self.assoc = options.l2_assoc
 
 # def connectBus(self, bus):
 #    self.mem_side = bus.cpu_side_ports
