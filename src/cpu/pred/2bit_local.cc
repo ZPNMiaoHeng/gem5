@@ -47,6 +47,7 @@ LocalBP::LocalBP(const LocalBPParams &params)
       localCtrs(localPredictorSets, SatCounter8(localCtrBits)),
       indexMask(localPredictorSets - 1)
 {
+    DPRINTF(Fetch, "%i\t%i\n", localPredictorSize, localCtrBits);
     if (!isPowerOf2(localPredictorSize)) {
         fatal("Invalid local predictor size!\n");
     }
